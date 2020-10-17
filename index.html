@@ -7,6 +7,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/main.min.css">
   <title>DST Seasons Calculator</title>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/00733ab047.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -14,12 +16,15 @@
     <label for="daysInput">Enter number of days lived</label>
     <div>
       <input type="text" id="daysInput">
-      <span class="util">
-        <button class="btn btn-4" id="calculate">Calc</button>
-      </span> 
+        <button id="calculate">Calc</button>
     </div>
     
     <p id="outputField"></p>
+  </div>
+
+  <div class="moon-cycle">
+    <p id="full-moon"></p>
+    <p id="new-moon"></p>
   </div>
   
 </body>

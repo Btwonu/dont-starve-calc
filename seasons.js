@@ -1,16 +1,20 @@
 'use strict';
 
-//Declarations
+// Declarations
 const calculateBtn = document.getElementById('calculate');
 const daysInput = document.getElementById('daysInput');
 const outputField = document.getElementById('outputField');
+const fullMoonOutput = document.getElementById('full-moon');
+const newMoonOutput = document.getElementById('new-moon');
 
-//Event listener
+// Event listener
 calculateBtn.addEventListener('click', function () {
   outputField.textContent = determineSeason(daysInput.value);
+  fullMoonOutput.textContent = fullMoon(daysInput.value);
+  newMoonOutput.textContent = newMoon(daysInput.value);
 });
 
-//Function Declarations
+// Function Declarations
 function determineSeason(day) {
   const seasons = {
     autumn: range(20, 1),
@@ -54,4 +58,32 @@ function determineSeason(day) {
 
 function range(size, startAt = 0) {
   return [...Array(size).keys()].map((i) => i + startAt);
+}
+
+function fullMoon(day) {
+  let nextMoon = 11;
+
+  while (nextMoon < day) {
+    nextMoon += 20;
+  }
+
+  if (nextMoon == day) {
+    return 'The next full moon is TONIGHT!';
+  }
+
+  return `The next full moon is going to be on day ${nextMoon}.`;
+}
+
+function newMoon(day) {
+  let nextMoon = 1;
+
+  while (nextMoon < day) {
+    nextMoon += 20;
+  }
+
+  if (nextMoon == day) {
+    return 'The next new moon is TONIGHT!';
+  }
+
+  return `The next new moon is going to be on day ${nextMoon}.`;
 }
