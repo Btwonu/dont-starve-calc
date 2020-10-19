@@ -1,18 +1,15 @@
 'use strict';
 
 // Declarations
+const app = document.getElementById('app');
 const calculateBtn = document.getElementById('calculate');
-const daysInput = document.getElementById('daysInput');
-const outputField = document.getElementById('outputField');
-const fullMoonOutput = document.getElementById('full-moon');
-const newMoonOutput = document.getElementById('new-moon');
+const daysInput = document.getElementById('days-input');
+// const outputField = document.getElementById('outputField');
+// const fullMoonOutput = document.getElementById('full-moon');
+// const newMoonOutput = document.getElementById('new-moon');
 
 // Event listener
-calculateBtn.addEventListener('click', function () {
-  outputField.textContent = determineSeason(daysInput.value);
-  fullMoonOutput.textContent = fullMoon(daysInput.value);
-  newMoonOutput.textContent = newMoon(daysInput.value);
-});
+calculateBtn.addEventListener('click', render);
 
 // Function Declarations
 function determineSeason(day) {
@@ -45,11 +42,20 @@ function determineSeason(day) {
       let nextSeasonDay = day + daysLeft;
 
       //Output
-      output = `Day ${day}. You're ${daysInto} day/s into ${season}. There are ${daysLeft} days left in the season. The next one is ${nextSeason} and starts at day ${nextSeasonDay}`;
-
-      if (daysLeft === 0) {
-        output = `Day ${day}. You're ${daysInto} day/s into ${season}. This is the last day of the season. The next one is ${nextSeason} and starts tomorrow.`;
-      }
+      output = `
+      <section class="info section-season">
+        <header class="section-title">
+          <div class="icon icon-sun"></div>
+          <h2>Day ${day}</h2>
+        </header>
+        <ul>
+          <li>You're <strong>${daysInto}</strong> day/s into <strong>${season}</strong></li>
+          <li>There are <strong>${daysLeft}</strong> days left in the season</li>
+          <li>Next season is <strong>${nextSeason}</strong>
+            and it starts at day <strong>${nextSeasonDay}</strong></li>
+        </ul>
+      </section>
+      `;
     }
   });
 
@@ -68,10 +74,10 @@ function fullMoon(day) {
   }
 
   if (nextMoon == day) {
-    return 'The next full moon is TONIGHT!';
+    return 'The full moon is <strong>TONIGHT!</strong>';
   }
 
-  return `The next full moon is going to be on day ${nextMoon}.`;
+  return `The next full moon is going to be on day <strong>${nextMoon}</strong>.`;
 }
 
 function newMoon(day) {
@@ -82,8 +88,28 @@ function newMoon(day) {
   }
 
   if (nextMoon == day) {
-    return 'The next new moon is TONIGHT!';
+    return 'The new moon is <strong>TONIGHT!</strong>';
   }
 
-  return `The next new moon is going to be on day ${nextMoon}.`;
+  return `The next new moon is going to be on day <strong>${nextMoon}</strong>.`;
+}
+
+function determineMoons(day) {
+  return `
+  <section class="info section-moon">
+    <header class="section-title">
+      <div class="icon icon-moon"></div>
+      <h2>Moon Cycle</h2>
+    </header>
+    <ul>
+      <li>${fullMoon(day)}</li>
+      <li>${newMoon(day)}</li>
+    </ul>
+  </section>
+  `;
+}
+
+function render() {
+  app.innerHTML = determineSeason(daysInput.value);
+  app.innerHTML += determineMoons(daysInput.value);
 }

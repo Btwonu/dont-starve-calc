@@ -7,26 +7,51 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/main.min.css">
   <title>DST Seasons Calculator</title>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/00733ab047.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-  <div class="determineSeason">
-    <label for="daysInput">Enter number of days lived</label>
-    <div>
-      <input type="text" id="daysInput">
-        <button id="calculate">Calc</button>
-    </div>
-    
-    <p id="outputField"></p>
-  </div>
-
-  <div class="moon-cycle">
-    <p id="full-moon"></p>
-    <p id="new-moon"></p>
-  </div>
   
+  <main id="app">
+    <section class="input-section">
+      <div class="input-wrapper">
+        <input type="text" id="days-input">
+        <label>Number of days lived</label>
+        <span class="bar"></span>
+      </div>
+
+      <button id="calculate" class="learn-more">
+        <span class="circle" aria-hidden="true"></span>
+        <span class="button-text">Calculate</span>
+      </button>
+    </section>
+    <p class="wilson-block">
+      <img src="images/wilson-full-beard.svg" alt="Image of Wilson with full grown beard">
+    </p>
+
+    <!-- <section class="info section-season">
+      <header class="section-title">
+        <div class="icon icon-sun"></div>
+        <h2>Day 31</h2>
+      </header>
+      <ul>
+        <li>You're 11 day/s into winter</li>
+        <li>There are 4 days left in the season</li>
+        <li>Next season is spring
+          and it starts at day 35</li>
+      </ul>
+    </section>
+
+    <section class="info section-moon">
+      <header class="section-title">
+        <div class="icon icon-moon"></div>
+        <h2>Moon Cycle</h2>
+      </header>
+      <ul>
+        <li>The next full moon is TONIGHT!</li>
+        <li>The next new moon
+          is going to be on day 41</li>
+      </ul>
+    </section> -->
+  </main>
 </body>
 
 <script src="seasons.js"></script>
