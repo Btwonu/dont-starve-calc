@@ -6,7 +6,7 @@ $bg-color: #fffefe;
 $hl-color: #2196f3;
 $muted-color: mix($bg-color, #000, 50%);
 $trans-time: 300ms;
-$width: 50%;
+$width: 100%;
 $white: #fff;
 $black: #282936;
 
@@ -51,7 +51,7 @@ main {
   // border: 1px solid orange; // Delete
   height: 50%;
   display: flex;
-  width: 100%;
+  width: 80%;
   flex-flow: column;
   align-items: center;
   justify-content: space-evenly;
@@ -79,7 +79,7 @@ main {
   flex-flow: column;
 
   label {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     position: absolute;
     top: 2.2rem;
     left: 5px;
@@ -88,9 +88,9 @@ main {
   }
 
   input {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     width: 100%;
-    height: 15rem;
+    height: 5rem;
     border: none;
     border-bottom: 1px solid $muted-color;
     // outline: none;
@@ -102,7 +102,7 @@ main {
     &:focus ~ label,
     &:valid ~ label {
       top: -2.5rem;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
     }
 
     &:focus ~ .bar:before {
