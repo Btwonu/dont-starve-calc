@@ -166,14 +166,14 @@ button {
   font-size: inherit;
   font-family: inherit;
   &.learn-more {
-    width: 23rem;
+    width: 17rem;
     height: auto;
     .circle {
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
       display: block;
       margin: 0;
-      width: 3rem;
-      height: 6rem;
+      width: 2rem;
+      height: 5rem;
       background: $black;
       border-radius: 1.625rem;
     }
@@ -181,13 +181,13 @@ button {
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
       position: absolute;
       top: 0;
-      left: 0;
+      left: -10px;
       right: 0;
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 1.85rem;
       color: $black;
-      font-size: 3rem;
+      font-size: 2.4rem;
       font-weight: 700;
       line-height: 1.6;
       text-align: center;
@@ -241,4 +241,18 @@ button {
 .icon-moon {
   background: url('../images/full-moon.svg') no-repeat center;
   background-size: contain;
+}
+
+.navigation {
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+    font-size: 1.6rem;
+    display: flex;
+
+    li {
+      padding: 1rem;
+    }
+  }
 }
